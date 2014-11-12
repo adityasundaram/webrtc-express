@@ -11,11 +11,12 @@ app.get('/', function (req, res) {
 });
 
 app.use(express.static(__dirname));
-app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
- });
+});
 server.listen(2013);
 io.sockets.on('connection', function (socket){
 
