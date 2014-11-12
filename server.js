@@ -1,4 +1,4 @@
-var app = require('express');
+var app = require('express')();
 var server = require('http').Server(app);
 
 
@@ -8,7 +8,6 @@ var io = require('socket.io').listen(server);
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
-
 
 app.use('/static', express.static(__dirname + ''));
 app.listen(2013);
