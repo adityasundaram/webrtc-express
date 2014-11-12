@@ -11,7 +11,6 @@ app.get('/', function (req, res) {
 });
 
 app.use(express.static(__dirname));
-app.use('/socket.io',express.static(__dirname + '/node_modules/'))
 app.listen(2013);
 io.sockets.on('connection', function (socket){
 
